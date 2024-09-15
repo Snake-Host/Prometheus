@@ -1,0 +1,28 @@
+---
+global:
+  scrape_interval: 5s
+scrape_configs:
+ - job_name: prom-srv
+   static_configs:
+    - targets:
+       - node_exporter:9100
+
+ - job_name: srv1_node-exporter
+   static_configs:
+    - targets:
+       - 192.168.10.52:9100
+
+ - job_name: srv2_node-exporter
+   static_configs:
+    - targets:
+       - 192.168.10.53:9100
+
+ - job_name: srv2_cadvisor
+   static_configs:
+    - targets:
+       - 192.168.10.53:8080
+
+ - job_name: windows-exporter
+   static_configs:
+    - targets:
+       - 192.168.10.54:9182
